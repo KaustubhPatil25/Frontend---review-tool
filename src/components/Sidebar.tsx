@@ -1,5 +1,4 @@
-import React from 'react';
-import { FileText, Trash2, Plus, HardDrive, Search, Database } from 'lucide-react';
+import { FileText, Trash2, Plus, Search, Database } from 'lucide-react';
 import type { ReviewFile } from "../types";
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -112,12 +111,12 @@ export default function Sidebar({ files, selectedFileId, onSelectFile, onDeleteF
       <div className="p-6 border-t border-zinc-100 bg-zinc-50/30">
          <div className="flex items-center justify-between text-[9px] font-mono uppercase tracking-[0.2em] text-zinc-400">
             <span>Storage Used</span>
-            <span className="text-zinc-900 font-bold">{(files.reduce((acc, f) => acc + f.size, 0) / (1024 * 1024)).toFixed(2)} MB</span>
+            <span className="text-zinc-900 font-bold">{(files.reduce((acc, f) => acc + f.size_bytes, 0) / (1024 * 1024)).toFixed(2)} MB</span>
          </div>
          <div className="w-full h-1 bg-zinc-200/50 rounded-full mt-3 overflow-hidden border border-zinc-100 shadow-inner">
             <div 
               className="h-full bg-amber-600 shadow-[0_0_8px_rgba(217,119,6,0.3)] transition-all duration-1000" 
-              style={{ width: `${Math.min((files.reduce((acc, f) => acc + f.size, 0) / (100 * 1024 * 1024)) * 100, 100)}%` }}
+              style={{ width: `${Math.min((files.reduce((acc, f) => acc + f.size_bytes, 0) / (100 * 1024 * 1024)) * 100, 100)}%` }}
             />
          </div>
       </div>

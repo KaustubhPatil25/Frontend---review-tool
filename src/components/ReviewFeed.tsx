@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { MessageSquare, History, CheckCircle2, MessageCircle, Send, Hash, MoreHorizontal } from 'lucide-react';
+import { useState } from 'react';
+import { MessageSquare, History, CheckCircle2, Send, Hash, MoreHorizontal } from 'lucide-react';
 import  type { ReviewComment, CommentStatus, ActivityLog } from '../types';
 import { format } from 'date-fns';
 import { motion, AnimatePresence } from 'motion/react';

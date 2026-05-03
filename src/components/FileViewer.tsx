@@ -98,7 +98,7 @@ export default function FileViewer({ file, comments, onAddComment, onSelectComme
         if (!context) continue;
         canvas.width = vp.width;
         canvas.height = vp.height;
-        const renderTask = page.render({ canvasContext: context, viewport: vp });
+        const renderTask = page.render({ canvasContext: context, canvas, viewport: vp });
         renderTasksRef.current[pageNum - 1] = renderTask;
         try {
           await renderTask.promise;
