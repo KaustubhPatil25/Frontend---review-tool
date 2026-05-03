@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Roboto", sans-serif;
+  --font-mono: "Roboto", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-eng-blue: #3b82f6;
+  --color-eng-border: #27272a;
+  --color-eng-bg: #09090b;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-50 text-zinc-600 antialiased selection:bg-amber-500/20 font-sans;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-zinc-900;
+  }
+}
+
+@layer components {
+  .tech-grid {
+    background-image: radial-gradient(circle at 1px 1px, #f59e0b15 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-1 h-1;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-zinc-200 hover:bg-zinc-300 transition-colors;
+  }
+
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-2xl border border-zinc-200/50 shadow-xl;
+  }
+  
+  .tech-card {
+    @apply border border-zinc-200 bg-white/50 hover:bg-white hover:border-amber-500/30 transition-all duration-500 shadow-sm hover:shadow-md;
+  }
+
+  .scanner-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(245, 158, 11, 0.2), transparent);
+    animation: scan 6s linear infinite;
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+
+  .avatar-ring {
+    @apply ring-1 ring-black/5 ring-offset-1 ring-offset-white;
+  }
+}
