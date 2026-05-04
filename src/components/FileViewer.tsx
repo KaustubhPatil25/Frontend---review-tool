@@ -53,7 +53,7 @@ export default function FileViewer({ file, comments, onAddComment, onSelectComme
 
   const renderImage = () => {
     const img = new Image();
-    img.src = `/uploads/${file.name}`;
+    img.src = file.path;
     img.onload = () => {
       setDimensions({ width: img.width, height: img.height });
       setLoading(false);
@@ -70,7 +70,7 @@ export default function FileViewer({ file, comments, onAddComment, onSelectComme
 
     try {
       const loadingTask = pdfjsLib.getDocument({
-        url: `/uploads/${file.name}`,
+        url: file.path,
         cMapUrl: `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/cmaps/`,
         cMapPacked: true,
         standardFontDataUrl: `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/standard_fonts/`,
@@ -201,7 +201,7 @@ export default function FileViewer({ file, comments, onAddComment, onSelectComme
               </div>
             ) : (
               <img 
-                src={`/uploads/${file.name}`} 
+                src={file.path} 
                 alt={file.original_name}
                 className="block max-w-none pointer-events-none select-none grayscale-[0.2] contrast-[1.05]"
                 style={{ width: dimensions.width, height: dimensions.height }}

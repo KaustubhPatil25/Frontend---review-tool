@@ -1,6 +1,6 @@
 import type { ReviewFile, ReviewComment, ReviewReply, ActivityLog, CommentStatus, AuthToken } from "../types";
 
-const API_BASE = `${import.meta.env.VITE_API_BASE}/api/v1`;
+const API_BASE = `${import.meta.env.VITE_API_BASE }/api/v1`;
 
 function getToken(): string | null {
   const session = localStorage.getItem('solarview_session');

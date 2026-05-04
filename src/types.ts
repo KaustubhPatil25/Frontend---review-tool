@@ -3,6 +3,7 @@ export interface ReviewFile {
   id: string;
   name: string;               // server-side stored filename (uuid + ext)
   original_name: string;      // original upload filename
+  path: string;               // Supabase public URL (use this to load the file)
   file_type: string;          // "pdf" | "image"
   mime_type: string;
   size_bytes: number;
